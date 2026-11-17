@@ -10,6 +10,30 @@ This project implements an AI-based classification system for industrial steel s
 
 The system accepts uploaded images, predicts one of six defect categories, displays model scores, and saves inference records to an SQLite database.
 
+
+## Application Demo
+
+### AI Image Classification
+
+Upload a steel surface image to identify one of six defect categories.
+
+![AI Dashboard](docs/screenshots/dashboard_overview.png)
+
+### Prediction History
+
+Each inference result is stored in SQLite and can be queried through the dashboard.
+
+![Prediction History](docs/screenshots/prediction_history.png)
+
+### Prediction Statistics
+
+The system provides prediction counts and average inference latency.
+
+![Statistics](docs/screenshots/statistics.png)
+
+> Note: Prediction counts represent model outputs, not actual
+> manufacturing defect rates.
+
 ## 2. Key Features
 
 - **Deep Learning:** ResNet18 transfer learning and Layer4 fine-tuning
