@@ -1,0 +1,41 @@
+﻿
+# Python environments
+.venv/
+.venv311/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local datasets
+data/downloaded/
+data/raw/
+data/database/
+
+# Model weights
+models/*.pth
+models/*.pt
+
+# Generated reports / caches
+reports/data_split.json
+reports/training_history.json
+reports/finetune_history.json
+
+# Logs and temporary files
+*.log
+*.db
+.env
+.env.*
+
+# IDE / OS files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Temporary debugging files
+app/test_predict_manual.py
+
+# Duplicate Docker configurations
+tests/Dockerfile
+tests/compose.yaml
+tests/.dockerignore
+tests/requirements-docker.txt

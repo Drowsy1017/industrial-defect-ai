@@ -1,0 +1,4 @@
+﻿filename,true_class,predicted_class,confidence
+inclusion\In_297.bmp,inclusion,pitted_surface,0.4708
+scratches\Sc_97.bmp,scratches,inclusion,0.5727
+scratches\Sc_140.bmp,scratches,inclusion,0.5304

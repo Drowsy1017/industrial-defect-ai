@@ -1,0 +1,50 @@
+﻿# ==========================================
+# Python virtual environments
+# ==========================================
+.venv/
+.venv311/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# ==========================================
+# Local datasets and databases
+# ==========================================
+data/downloaded/
+data/raw/
+data/database/
+*.db
+*.db-shm
+*.db-wal
+
+# ==========================================
+# Trained model weights
+# ==========================================
+models/*.pth
+models/*.pt
+
+# ==========================================
+# Local files
+# ==========================================
+.env
+.env.*
+*.log
+test_image.png
+
+# ==========================================
+# IDE / Operating System
+# ==========================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary debugging scripts
+app/test_predict_manual.py
+
+# Duplicate Docker configurations
+tests/Dockerfile
+tests/compose.yaml
+tests/.dockerignore
+tests/requirements-docker.txt
