@@ -14,6 +14,9 @@ from sklearn.metrics import (
     confusion_matrix,
 )
 
+import matplotlib.pyplot as plt
+from sklearn.metrics import ConfusionMatrixDisplay
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data" / "raw"
 MODEL_DIR = ROOT / "models"
@@ -159,12 +162,57 @@ for model_name, filename in model_files.items():
         zero_division=0,
     ))
 
-    print("Confusion Matrix:")
-    print(confusion_matrix(
+    
+    # 計算混淆矩陣
+    cm = confusion_matrix(
         all_true,
         all_pred,
         labels=class_ids,
-    ))
+    )
+
+    print("Confusion Matrix:")
+    print(cm)
+
+    # 繪製混淆矩陣
+    fig, ax = plt.subplots(figsize=(10, 8))
+
+    disp = ConfusionMatrixDisplay(
+        confusion_matrix=cm,
+        display_labels=dataset.classes,
+    )
+
+    disp.plot(
+        ax=ax,
+        cmap="Blues",
+        xticks_rotation=45,
+        values_format="d",
+    )
+
+    ax.set_title(
+        f"{model_name} - Test Confusion Matrix"
+    )
+
+    plt.tight_layout()
+
+    # 依照模型名稱儲存
+    filename = (
+        "baseline_test_confusion_matrix.png"
+        if model_name == "Baseline"
+        else "finetuned_test_confusion_matrix.png"
+    )
+
+    output_path = REPORT_DIR / filename
+
+    plt.savefig(
+        output_path,
+        dpi=200,
+        bbox_inches="tight",
+    )
+
+    plt.close(fig)
+
+    print(f"Saved confusion matrix: {output_path}")
+
 
     results.append({
         "model": model_name,
