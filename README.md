@@ -61,6 +61,8 @@ Classes: Crazing, Inclusion, Patches, Pitted Surface, Rolled-in Scale, and Scrat
 
 Dataset reference: https://faculty.neu.edu.cn/songkc/en/zdylm/263265/
 
+
+
 ## 4. Model Evaluation
 
 | Metric | Baseline ResNet18 | Fine-tuned ResNet18 |
@@ -71,9 +73,58 @@ Dataset reference: https://faculty.neu.edu.cn/songkc/en/zdylm/263265/
 
 Fine-tuning ResNet18 Layer4 and the final classification layer improved the held-out test accuracy by approximately **2.96 percentage points**.
 
-![Confusion Matrix](reports/confusion_matrix.png)
+
+### Test Set Confusion Matrices
+
+The following matrices compare both models on the same
+270-image held-out test split.
+
+#### Baseline ResNet18
+
+![Baseline Test Confusion Matrix](reports/baseline_test_confusion_matrix.png)
+
+#### Fine-tuned ResNet18
+
+![Fine-tuned Test Confusion Matrix](reports/finetuned_test_confusion_matrix.png)
+
+### Error Analysis
+
+The baseline model made 8 incorrect predictions,
+including 6 scratches images classified as inclusion.
+
+After fine-tuning Layer4 and the final classification
+layer, the model correctly classified all 270 images
+in this test split.
+
+**Limitations:** These results are specific to the
+current NEU-CLS split. Random splitting may not fully
+eliminate correlated images or batch-level similarity.
+Performance on external production data has not
+been validated.
 
 *Important: The 100% result applies only to this 270-image held-out test split. It does not demonstrate production accuracy or cross-domain generalization.*
+
+
+### Test Set Confusion Matrices
+
+**Baseline ResNet18**
+
+![Baseline Confusion Matrix](reports/baseline_test_confusion_matrix.png)
+
+**Fine-tuned ResNet18**
+
+![Fine-tuned Confusion Matrix](reports/finetuned_test_confusion_matrix.png)
+
+### Evaluation Notes
+
+Fine-tuning improved test accuracy from 97.04% to 100%
+on the held-out NEU-CLS test split.
+
+The baseline model misclassified eight images,
+including six scratches images predicted as inclusion.
+
+These results are dataset-specific and do not establish
+generalization to real production environments.
 
 ## 5. System Architecture
 
